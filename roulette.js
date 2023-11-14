@@ -1,7 +1,9 @@
-let playerNumb = prompt("Bet number:");
 let playerBet = prompt("How much do you wanna bet in each round?");
 let rounds = prompt("For how many rounds do you wanna bet the same number?");
 let betTotal = 0;
+let wins = 0;
+let losses = 0;
+
 
 function game() {
 
@@ -20,14 +22,17 @@ function getNumber(list) {
 
 
 if (rouletteNum == playerNumb){
-    return betTotal = betTotal + (playerBet * 36), console.log("WINNER WINNER CHICKEN DINNER");
+    return betTotal = betTotal + (playerBet * 36), console.log("WINNER WINNER CHICKEN DINNER"), wins++;
 } else {
-    return betTotal = betTotal - playerBet;
+    return betTotal = betTotal - playerBet, losses++;
 
 }
 }
-for(let j = 0; j <= rounds; j++){
+for(let j = 0; j <= rounds-1; j++){
 game();
 }
 console.log(`The play total is ${betTotal}`)
+console.log(`You won ${wins} times`)
+console.log(`You lost ${losses} times`)
+
 
