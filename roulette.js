@@ -1,36 +1,33 @@
-let playerNumb = 10
-let playerBet = 1000
-let round = 1;
-
-let win = playerBet * 36;
+let playerNumb = prompt("Bet number:");
+let playerBet = prompt("How much do you wanna bet in each round?");
+let rounds = prompt("For how many rounds do you wanna bet the same number?");
+let betTotal = 0;
 
 function game() {
-    for(let winner = 0; winner < 1; ){
 
 const numberArray = []
 for (let i = 0; i < 37  ; i++) {
     numberArray.push(i)
 }
-let lose = playerBet * round;
 
 function getNumber(list) {
-return list[Math.floor((Math.random()*list.length))];
+    return list[Math.floor((Math.random()*list.length))];
+    }
+    
+    let rouletteNum = getNumber(numberArray);
+    
+    console.log(`Rolled: ${rouletteNum}`)
+
+
+if (rouletteNum == playerNumb){
+    return betTotal = betTotal + (playerBet * 36), console.log("WINNER WINNER CHICKEN DINNER");
+} else {
+    return betTotal = betTotal - playerBet;
+
 }
-
-let rouletteNum = getNumber(numberArray);
-
-console.log(`The magic number is ${rouletteNum}`)
-
-
-if (rouletteNum === playerNumb){
-    winner++, console.log(`You won $${win}`);
-
-} else if (rouletteNum !== playerNumb){
-    round++, console.log(`you lost ${lose}`)
 }
-console.log(`the balance is ${win - lose} `)
-};
-
-};
+for(let j = 0; j <= rounds; j++){
 game();
-console.log(`it took ${round} rounds to win`);
+}
+console.log(`The play total is ${betTotal}`)
+
